@@ -1,9 +1,8 @@
-from django.test import TestCase
 from django.contrib.auth import get_user_model
+from django.test import TestCase
 from django.urls import reverse
-
-from rest_framework.test import APIClient
 from rest_framework import status
+from rest_framework.test import APIClient
 
 
 CREATE_USER_URL = reverse("user:create")
@@ -15,13 +14,13 @@ def create_user(**params):
 
 
 class PublicUserApiTests(TestCase):
-    """Test the usesrs API (public)"""
+    """Test the users API (public)"""
 
     def setUp(self):
         self.client = APIClient()
 
     def test_create_valid_user_success(self):
-        """Test creating user with valid payload is sucessfull"""
+        """Test creating user with valid payload is successful"""
         payload = {
             "email": "test@test.com",
             "password": "testpass",
